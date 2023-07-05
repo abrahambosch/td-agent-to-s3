@@ -19,6 +19,11 @@ try {
 
 } catch (\Exception $e) {
     $fp = fopen("/var/log/foo.log", "a");
+    $out = [
+        'time' => date("c"),
+        'message' => $e->getMessage()
+    ];
+    //fwrite($fp, json_encode($out) . "\n");
     fwrite($fp, date("c") . " - " . $e->getMessage() . "\n");
     fclose($fp);
 }
