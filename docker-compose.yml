@@ -29,6 +29,11 @@ services:
     volumes:
     - ./src:/var/www/html
     - ./td-agent.conf:/etc/td-agent/td-agent.conf
+    #- ./td-agent-minio-and-s3.conf:/etc/td-agent/td-agent.conf
+    environment:
+      - TD_AGENT_AWS_KEY_ID
+      - TD_AGENT_AWS_SEC_KEY
+
 
   minio:
     image: minio/minio
